@@ -1,0 +1,46 @@
+# CONFIG INFO FOR THIS FILE
+
+# personal config directory
+export PCD="/Users/sara/.sara"
+export PCD2="$PCD/configuration_files"
+
+# # # # # # # # # # # # # # #
+
+# ALIASES
+
+alias brew="/opt/homebrew/bin/brew"
+alias sararc="vim $PCD2/sara.rc"
+alias zshrc="vim ~/.zshrc"
+alias vimrc="vim ~/.sara/configuration_files/vim/vimrc"
+alias respring="source ~/.zshrc"
+
+# alias python="/Users/sara/.asdf/installs/python/3.10.2/bin/python3"
+alias python='python3'
+alias py="python"
+alias pip="py -m pip"
+
+# # # # # # # # # # # # # # # 
+
+# ENVIRONMENT VARIABLES
+
+# Path Configurations
+export PATH="$PCD/bin:$PATH"
+
+# This line sources a config file containing API tokens and such
+source $PCD/configuration_files/API_KEYS.rc
+
+# Set vimrc file location
+export MYVIMRC='$PCD2/vim/vimrc'
+export VIMINIT=':set runtimepath^=$PCD2/vim|:source $MYVIMRC'
+
+# # # # # # # # # # # # # # # 
+
+# SCRIPTING
+
+clear
+
+# # # # # # # # # # # # # # #
+
+# NOTES
+
+

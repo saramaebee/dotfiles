@@ -1,4 +1,10 @@
-eval $(/opt/homebrew/bin/brew shellenv)
+
+if [[ ${uname -m) == "x86_64"} ]]; then
+  eval "$(/usr/local/Homebrew/bin/brew shellenv)"
+else
+  eval "$(/opt/homebrew/bin/brew shellenv)"
+fi
+
 if (( ! ${fpath[(I)/usr/local/share/zsh/site-functions]} )); then
   FPATH=/usr/local/share/zsh/site-functions:$FPATH
 fi

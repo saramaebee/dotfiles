@@ -9,6 +9,7 @@ call plug#begin('$PCD2/vim/plugged')
 	" NerdCommenter isn't needed due to commentary's install
 	" Plug 'preservim/nerdcommenter'
 	Plug 'dense-analysis/ale'
+	Plug 'airblade/vim-gitgutter'
 	Plug 'frazrepo/vim-rainbow'
 	Plug 'tpope/vim-commentary'
 	Plug 'Rykka/clickable.vim'

@@ -47,7 +47,10 @@ augroup END
 inoremap jj <esc>
 
 nnoremap <space> :
- 
+
+" git-blame 
+nnoremap <Leader>s :<C-u>call gitblame#echo()<CR>
+
 " }}}
 
 " RANDOM CONFIG {{{

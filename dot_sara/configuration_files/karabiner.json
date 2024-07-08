@@ -1,0 +1,41 @@
+{"ALERT": "don't copy this object :)",
+ "description": "this is my Karabiner configuration. copy the object below and paste it to https://genesy.github.io/karabiner-complex-rules-generator/ in order to edit and/or install into your Karabiner. Make sure to remove the old rules",},
+ {
+  "title": "sara's config",
+  "rules": [
+    {
+      "description": "shift + caps lock => activate caps lock",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "modifiers": {
+              "mandatory": [
+                "left_shift"
+              ]
+            },
+            "key_code": "caps_lock"
+          }
+        }
+      ]
+    },
+    {
+      "description": "caps lock => escape",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "caps_lock"
+          },
+          "to": [
+            {
+              "repeat": true,
+              "key_code": "escape"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
+~

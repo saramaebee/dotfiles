@@ -9,6 +9,8 @@ call plug#begin('$PCD2/vim/plugged')
 	" NerdCommenter isn't needed due to commentary's install
 	" Plug 'preservim/nerdcommenter'
 	Plug 'dense-analysis/ale'
+	Plug 'airblade/vim-gitgutter'
+	Plug 'zivyangll/git-blame.vim'
 	Plug 'frazrepo/vim-rainbow'
 	Plug 'tpope/vim-commentary'
 	Plug 'Rykka/clickable.vim'
@@ -45,7 +47,10 @@ augroup END
 inoremap jj <esc>
 
 nnoremap <space> :
- 
+
+" git-blame 
+nnoremap <Leader>s :<C-u>call gitblame#echo()<CR>
+
 " }}}
 
 " RANDOM CONFIG {{{

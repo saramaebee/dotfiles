@@ -33,10 +33,14 @@ source $PCD/configuration_files/API_KEYS.rc
 export MYVIMRC='$PCD2/vim/vimrc'
 export VIMINIT=':set runtimepath^=$PCD2/vim|:source $MYVIMRC'
 
+CATALINA_HOME="/Users/sara/apache-tomcat-7.0.104"
+JRE_HOME="/Users/sara/Library/Java/JavaVirtualMachines/openjdk-17.0.2/Contents/Home"
+
 # # # # # # # # # # # # # # # 
 
 # SCRIPTING
 
+function mkcd() { mkdir -p "$1" && cd "$1" }
 clear
 
 # # # # # # # # # # # # # # #

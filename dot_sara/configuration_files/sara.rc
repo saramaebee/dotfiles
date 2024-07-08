@@ -24,7 +24,7 @@ alias pip="py -m pip"
 # ENVIRONMENT VARIABLES
 
 # Path Configurations
-export PATH="$PCD/bin:$PATH"
+export PATH="/Users/sara/bin:/opt/homebrew/bin:$PCD/bin:$PATH"
 
 # This line sources a config file containing API tokens and such
 source $PCD/configuration_files/API_KEYS.rc

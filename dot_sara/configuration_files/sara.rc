@@ -19,15 +19,23 @@ alias python='python3'
 alias py="python"
 alias pip="py -m pip"
 
+alias ww="cd ~/support-workspace/vendored/fossas/wench"
+alias wsb="wrench self build"
+
+alias up-core='docker compose up core-db core-migrate core-s3 core-redis core-smtp core-faktory core-testdb core-worker --force-recreate'
+
 # # # # # # # # # # # # # # # 
 
 # ENVIRONMENT VARIABLES
 
 # Path Configurations
-export PATH="/Users/sara/bin:/opt/homebrew/bin:$PCD/bin:$PATH"
+export PATH="/Users/sara/bin:$PCD/bin:/opt/homebrew/bin:$PATH"
 
 # This line sources a config file containing API tokens and such
 source $PCD/configuration_files/API_KEYS.rc
+
+# Uncomment this line when at conferences to demo into your empty organization
+# export FOSSA_API_KEY=$SECONDARY_API_KEY
 
 # Set vimrc file location
 export MYVIMRC='$PCD2/vim/vimrc'
@@ -41,7 +49,32 @@ JRE_HOME="/Users/sara/Library/Java/JavaVirtualMachines/openjdk-17.0.2/Contents/H
 # SCRIPTING
 
 function mkcd() { mkdir -p "$1" && cd "$1" }
+
+# Switch own FOSSA user back to org 1 (superadmin org)
+function fossa-switch-to-org-1() {
+  curl -sS -X PUT 'https://app.fossa.com/api/internal-tools/user/38913' \
+    -H "Authorization: Bearer $SUPERADMIN_API_KEY" \
+    -H 'Content-Type: application/json' \
+    --data-raw '{"organizationId":1}'
+}
+asdf install fossa latest
+asdf global fossa latest
 clear
+
+# Remind to update brew if stale (>2 weeks)
+if [[ $(uname -m) == "x86_64" ]]; then
+  _brew_fetch="/usr/local/Homebrew/.git/FETCH_HEAD"
+else
+  _brew_fetch="/opt/homebrew/.git/FETCH_HEAD"
+fi
+if [[ -f "$_brew_fetch" ]]; then
+  _last_update=$(stat -f %m "$_brew_fetch")
+  _two_weeks_ago=$(($(date +%s) - 1209600))
+  if (( _last_update < _two_weeks_ago )); then
+    echo "Homebrew hasn't been updated in over 2 weeks. Run: brew update && brew upgrade"
+  fi
+fi
+unset _brew_fetch _last_update _two_weeks_ago
 
 # # # # # # # # # # # # # # #
 

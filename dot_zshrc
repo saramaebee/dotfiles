@@ -127,14 +127,39 @@ prompt pure
 source "/Users/sara/.sara/configuration_files/sara.rc"
 
 # FASD config
-eval "$(fasd --init auto)"
+# eval "$(fasd --init auto)"
 
 # ZSH Autosuggestions
 source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 # ASDF-DIRENV
 # Hook direnv into your shell.
-eval "$(direnv hook zsh)"
+# eval "$(direnv hook zsh)"
 
 # A shortcut for asdf managed direnv.
-direnv() { asdf exec direnv "$@"; }
+# direnv() { asdf exec direnv "$@"; }
+
+[ -f "/Users/sara/.ghcup/env" ] && . "/Users/sara/.ghcup/env" # ghcup-env
+. "$HOME/.local/bin/env"
+
+# bun completions
+[ -s "/Users/sara/.oh-my-zsh/completions/_bun" ] && source "/Users/sara/.oh-my-zsh/completions/_bun"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
+
+# GNU utilities for fossapedia
+export PATH="/opt/homebrew/opt/util-linux/bin:$PATH"
+export PATH="/opt/homebrew/opt/util-linux/sbin:$PATH"
+export PATH="/opt/homebrew/opt/findutils/libexec/gnubin:$PATH"
+export GPG_TTY=$(tty)
+
+
+# eliza
+export PATH="/Users/sara/support-workspace/vendored/fossas/eliza/bin:$PATH"
+
+. "$HOME/.cargo/env"
+
+# opencode
+export PATH=/Users/sara/.opencode/bin:$PATH
